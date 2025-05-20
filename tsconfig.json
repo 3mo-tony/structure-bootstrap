@@ -1,0 +1,80 @@
+{
+  "compilerOptions": {
+    // Output directory for compiled files.
+    "outDir": "dist",
+
+    // Use CommonJS for compatibility with Node.js.
+    "module": "CommonJS",
+
+    // Force detection of modules (generally safe).
+    "moduleDetection": "force",
+
+    // Use Node.js module resolution strategy.
+    "moduleResolution": "node",
+
+    // Include Node.js types for type definitions.
+    "types": ["node"],
+
+    // Specify library files to be included in the compilation.
+    "lib": ["ES2022"],
+
+    // Ensure consistent casing in file names.
+    "forceConsistentCasingInFileNames": true,
+
+    // Report errors for fallthrough cases in switch statements.
+    "noFallthroughCasesInSwitch": true,
+
+    // Enable error reporting for unchecking indexed accesses.
+    "noUncheckedIndexedAccess": true,
+
+    // Raise an error if a class method does not override a base class method.
+    "noImplicitOverride": true,
+
+    // Enable all strict type-checking options.
+    "strict": true,
+
+    // Enables emit interoperability between CommonJS and ES Modules.
+    "esModuleInterop": true,
+
+    // Skip type checking of declaration files for faster compilation.
+    "skipLibCheck": true,
+
+    // Allows importing JSON files as modules.
+    "resolveJsonModule": true,
+
+    // Raise an error on expressions and declarations with an implied 'any' type.
+    "noImplicitAny": true,
+
+    // Base directory to resolve non-relative module names.
+    "baseUrl": ".",
+
+    "paths": {
+      "@types": ["./src/types"], // Map @types to the types directory (if applicable).
+      "@config": ["./src/config"],
+      "@loaders": ["./src/loaders"],
+      "@contracts": ["./src/contracts"],
+      "@combinedServices": ["./src/combined-services"],
+      "@services": ["./src/services"],
+      "@utils": ["./src/utils"],
+      "@routes": ["./src/routes"],
+      "@controllers": ["./src/controllers"],
+      "@constants": ["./src/constants"],
+      "@models": ["./src/models"],
+      // "@views": ["./src/views"]
+      "@schema": ["./src/schemas"], // Correctly map @schema to the src/schemas directory.
+      "@middlewares": ["./src/middlewares"],
+      "@adapters": ["./src/adapters"],
+      "@scripts": ["./scripts"]
+    },
+
+    "sourceMap": true,
+    "inlineSources": true,
+
+    // Set `sourceRoot` to  "/" to strip the build path prefix
+    // from generated source code references.
+    // This improves issue grouping in Sentry.
+    "sourceRoot": "/"
+  },
+  "include": ["src/**/*", "scripts/**/*", "trace.js", "sentry-sourcemaps.js"], // Include all TypeScript files in the src directory.
+  "exclude": ["node_modules", "**/*.spec.ts"] // Exclude node_modules and test files.
+}
