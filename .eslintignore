@@ -1,6 +1,10 @@
+node_modules
+node_modules/**
 node_modules/
+dist/**
 dist/
-build/
-coverage/
+dist
+build
+coverage
 *.js.map
-*.d.ts 
+*.d.ts

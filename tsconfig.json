@@ -64,6 +64,8 @@
       "@schema": ["./src/schemas"], // Correctly map @schema to the src/schemas directory.
       "@middlewares": ["./src/middlewares"],
       "@adapters": ["./src/adapters"],
+      "@interceptors": ["./src/interceptors"],
+      "@processes": ["./src/processes"],
       "@scripts": ["./scripts"]
     },
 
@@ -76,5 +78,12 @@
     "sourceRoot": "/"
   },
   "include": ["src/**/*", "scripts/**/*", "trace.js", "sentry-sourcemaps.js"], // Include all TypeScript files in the src directory.
-  "exclude": ["node_modules", "**/*.spec.ts"] // Exclude node_modules and test files.
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "migrations/**/*",
+    "seeders/**/*",
+    "models/**/*",
+    "scripts/**"
+  ] // Exclude node_modules, test files, and Sequelize files.
 }

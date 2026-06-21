@@ -1,35 +1,44 @@
-import eslint from '@eslint/js';
-import tseslint from '@typescript-eslint/eslint-plugin';
-import tsparser from '@typescript-eslint/parser';
-import prettier from 'eslint-plugin-prettier';
-import eslintConfigPrettier from 'eslint-config-prettier';
+const eslint = require('@eslint/js')
+const tseslint = require('@typescript-eslint/eslint-plugin')
+const tsParser = require('@typescript-eslint/parser')
+const eslintConfigPrettier = require('eslint-config-prettier')
+const prettier = require('eslint-plugin-prettier')
+const globals = require('globals')
 
-export default [
+module.exports = [
+  {
+    ignores: [
+      'node_modules/**',
+      'dist/**',
+      'migrations/**',
+      'seeders/**',
+      'models/**',
+      '**/*.js'
+    ]
+  },
+
   eslint.configs.recommended,
   {
     files: ['**/*.ts'],
     languageOptions: {
-      parser: tsparser,
-      parserOptions: {
-        ecmaVersion: 2020,
-        sourceType: 'module',
-      },
+      parser: tsParser,
+      ecmaVersion: 'latest',
+      globals: {
+        ...globals.node,
+        ...globals.es2021
+      }
     },
     plugins: {
       '@typescript-eslint': tseslint,
-      prettier: prettier,
+      'prettier': prettier
     },
     rules: {
-      '@typescript-eslint/explicit-function-return-type': 'off',
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-      'prettier/prettier': 'error',
-    },
-    env: {
-      node: true,
-      es6: true,
-    },
+      'explicit-function-return-type': 'off',
+      'explicit-module-boundary-types': 'off',
+      'no-explicit-any': 'off',
+      'no-unused-vars': 'off',
+      'prettier/prettier': 'error'
+    }
   },
-  eslintConfigPrettier,
-];
+  eslintConfigPrettier
+]

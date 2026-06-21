@@ -15,20 +15,25 @@ A TypeScript-based Node.js project template with a well-organized structure and 
 
 ```
 src/
-├── adapters/        # External service adapters
-├── config/          # Configuration files
-├── constants/       # Application constants
-├── controllers/     # Request handlers
-├── contracts/       # Type definitions and interfaces
-├── loaders/         # Application bootstrapping
-├── middlewares/     # Express middlewares
-├── models/          # Data models
-├── routes/          # API routes
-├── schemas/         # Validation schemas
-├── services/        # Business logic
-├── types/           # TypeScript type definitions
-├── utils/           # Utility functions
-└── views/           # View templates
+├── adapters/           # External service adapters
+├── combined-services/  # Cross-model service orchestration
+├── config/             # Configuration files
+├── constants/          # Application constants
+├── controllers/        # Request handlers
+├── contracts/          # Type definitions and interfaces
+├── interceptors/       # External API / integration interceptors
+├── loaders/            # Application bootstrapping
+├── locales/            # i18n translation files
+├── middlewares/        # Express middlewares
+├── models/             # Data models
+├── processes/          # Cron jobs and background processes
+├── routes/             # API routes
+├── schemas/            # Validation schemas
+├── services/           # Business logic
+├── swagger/            # OpenAPI definitions and paths
+├── types/              # TypeScript type definitions
+├── utils/              # Utility functions
+└── views/              # View templates
 ```
 
 ## 🛠️ Development Setup
@@ -40,6 +45,9 @@ src/
    ```
 
 2. **Development Scripts**
+   - `npm run dev` - Start development server with hot reload
+   - `npm run build` - Compile TypeScript and resolve path aliases
+   - `npm run start` - Run compiled application
    - `npm run lint` - Check for linting issues
    - `npm run lint:fix` - Automatically fix linting issues
    - `npm run format` - Format code using Prettier
@@ -72,15 +80,18 @@ src/
 The project uses path aliases for cleaner imports:
 
 - `@adapters` → `src/adapters`
+- `@combinedServices` → `src/combined-services`
 - `@config` → `src/config`
 - `@constants` → `src/constants`
 - `@controllers` → `src/controllers`
 - `@contracts` → `src/contracts`
+- `@interceptors` → `src/interceptors`
 - `@loaders` → `src/loaders`
 - `@middlewares` → `src/middlewares`
 - `@models` → `src/models`
+- `@processes` → `src/processes`
 - `@routes` → `src/routes`
-- `@schemas` → `src/schemas`
+- `@schema` → `src/schemas`
 - `@services` → `src/services`
 - `@utils` → `src/utils`
 - `@types` → `src/types`
